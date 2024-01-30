@@ -88,7 +88,7 @@ module.exports = {
         ],
         include: [
           path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, 'node_modules/@fontsource/poppins'),
+          path.resolve(__dirname, 'node_modules/@fontsource/ibm-plex-sans'),
           path.resolve(__dirname, 'node_modules/@fontsource/source-code-pro'),
           path.resolve(__dirname, 'node_modules/reactflow'),
           path.resolve(__dirname, 'node_modules/codemirror'),
@@ -151,7 +151,7 @@ module.exports = {
         },
         include: [
           path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, 'node_modules/@fontsource/poppins'),
+          path.resolve(__dirname, 'node_modules/@fontsource/ibm-plex-sans'),
           path.resolve(__dirname, 'node_modules/@fontsource/source-code-pro'),
         ], // Just the source code
       },
@@ -254,7 +254,7 @@ module.exports = {
     proxy: [
       {
         context: '/api',
-        target: 'http://localhost:8585/',
+        target: 'https://metadata.aladincredible.ai/',
         changeOrigin: true,
       },
     ],

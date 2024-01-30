@@ -903,7 +903,7 @@ const AuthenticatedAppRouter: FunctionComponent = () => {
       <Route exact component={EditKPIPage} path={ROUTES.EDIT_KPI} />
       <Route exact component={AddTestSuitePage} path={ROUTES.ADD_TEST_SUITES} />
       <Route exact path={ROUTES.HOME}>
-        <Redirect to={ROUTES.MY_DATA} />
+        <Redirect to={ROUTES.SETTINGS} />
       </Route>
 
       <AdminProtectedRoute

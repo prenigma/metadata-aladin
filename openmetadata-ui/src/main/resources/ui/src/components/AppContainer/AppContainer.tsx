@@ -36,7 +36,7 @@ const AppContainer = () => {
           <Appbar />
         </Header>
         <Layout hasSider>
-          <Sider className="left-sidebar-col" width={60}>
+          <Sider className="left-sidebar-col" width={0}>
             <LeftSidebar />
           </Sider>
           <Content className="main-content">

@@ -575,6 +575,8 @@ const TableDetailsPageV1 = () => {
     ]
   );
 
+  console.log('tableDetails', tableDetails)
+
   const tabs = useMemo(() => {
     const allTabs = [
       {

@@ -344,6 +344,7 @@ const ExplorePageV1: FunctionComponent = () => {
         const counts: Record<string, number> = {};
 
         buckets.forEach((item) => {
+          // @ts-ignore
           if (item && TABS_SEARCH_INDEXES.includes(item.key)) {
             counts[item.key ?? ''] = item.doc_count;
           }

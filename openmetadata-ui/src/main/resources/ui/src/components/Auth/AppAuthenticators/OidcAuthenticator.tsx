@@ -122,7 +122,7 @@ const OidcAuthenticator = forwardRef<AuthenticatorRef, Props>(
             {!isAuthDisabled && !isAuthenticated && !isSigningIn ? (
               <Redirect to={ROUTES.SIGNIN} />
             ) : (
-              <Redirect to={ROUTES.MY_DATA} />
+              <Redirect to={ROUTES.SETTINGS} />
             )}
           </Route>
           <Route exact component={PageNotFound} path={ROUTES.NOT_FOUND} />

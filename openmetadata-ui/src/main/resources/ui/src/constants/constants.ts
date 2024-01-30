@@ -27,7 +27,7 @@ import {
   GlobalSettingsMenuCategory,
 } from './GlobalSettings.constants';
 
-export const PRIMERY_COLOR = '#0968da';
+export const PRIMERY_COLOR = '#4e32bc';
 export const SECONDARY_COLOR = '#B02AAC';
 export const INFO_COLOR = '#2196f3';
 export const ERROR_COLOR = '#ff4c3b';

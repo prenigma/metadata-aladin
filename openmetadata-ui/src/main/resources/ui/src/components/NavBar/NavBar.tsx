@@ -16,16 +16,19 @@ import {
   Badge,
   Col,
   Dropdown,
-  Input,
+  // Input,
   InputRef,
-  Popover,
+  // Popover,
   Row,
-  Select,
+  // Select,
   Space,
 } from 'antd';
 import { CookieStorage } from 'cookie-storage';
 import i18next from 'i18next';
-import { debounce, upperCase } from 'lodash';
+import {
+  // debounce,
+  upperCase
+} from 'lodash';
 import React, {
   useCallback,
   useEffect,
@@ -35,13 +38,13 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
-import AppState from '../../AppState';
+// import AppState from '../../AppState';
 import { ReactComponent as DropDownIcon } from '../../assets/svg/DropDown.svg';
 import { ReactComponent as IconBell } from '../../assets/svg/ic-alert-bell.svg';
-import { ReactComponent as DomainIcon } from '../../assets/svg/ic-domain.svg';
-import { ReactComponent as Help } from '../../assets/svg/ic-help.svg';
+// import { ReactComponent as DomainIcon } from '../../assets/svg/ic-domain.svg';
+// import { ReactComponent as Help } from '../../assets/svg/ic-help.svg';
 import {
-  globalSearchOptions,
+  // globalSearchOptions,
   NOTIFICATION_READ_TIMER,
   SOCKET_EVENTS,
 } from '../../constants/constants';
@@ -62,18 +65,18 @@ import {
   SupportedLocales,
 } from '../../utils/i18next/i18nextUtil';
 import { isCommandKeyPress, Keys } from '../../utils/KeyboardUtil';
-import {
-  inPageSearchOptions,
-  isInPageSearchAllowed,
-} from '../../utils/RouterUtils';
-import SVGIcons, { Icons } from '../../utils/SvgUtils';
+// import {
+//   inPageSearchOptions,
+//   isInPageSearchAllowed,
+// } from '../../utils/RouterUtils';
+// import SVGIcons, { Icons } from '../../utils/SvgUtils';
 import { ActivityFeedTabs } from '../ActivityFeed/ActivityFeedTab/ActivityFeedTab.interface';
-import SearchOptions from '../AppBar/SearchOptions';
-import Suggestions from '../AppBar/Suggestions';
+// import SearchOptions from '../AppBar/SearchOptions';
+// import Suggestions from '../AppBar/Suggestions';
 import BrandImage from '../common/BrandImage/BrandImage';
-import CmdKIcon from '../common/CmdKIcon/CmdKIcon.component';
-import { useDomainProvider } from '../Domain/DomainProvider/DomainProvider';
-import { useGlobalSearchProvider } from '../GlobalSearchProvider/GlobalSearchProvider';
+// import CmdKIcon from '../common/CmdKIcon/CmdKIcon.component';
+// import { useDomainProvider } from '../Domain/DomainProvider/DomainProvider';
+// import { useGlobalSearchProvider } from '../GlobalSearchProvider/GlobalSearchProvider';
 import WhatsNewModal from '../Modals/WhatsNewModal/WhatsNewModal';
 import NotificationBox from '../NotificationBox/NotificationBox.component';
 import { UserProfileIcon } from '../Users/UserProfileIcon/UserProfileIcon.component';
@@ -85,34 +88,34 @@ import popupAlertsCardsClassBase from './PopupAlertClassBase';
 const cookieStorage = new CookieStorage();
 
 const NavBar = ({
-  supportDropdown,
-  searchValue,
+  // supportDropdown,
+  // searchValue,
   isFeatureModalOpen,
-  isTourRoute = false,
-  pathname,
-  isSearchBoxOpen,
-  handleSearchBoxOpen,
+  // isTourRoute = false,
+  // pathname,
+  // isSearchBoxOpen,
+  // handleSearchBoxOpen,
   handleFeatureModal,
-  handleSearchChange,
-  handleKeyDown,
-  handleOnClick,
-  handleClear,
+  // handleSearchChange,
+  // handleKeyDown,
+  // handleOnClick,
+  // handleClear,
 }: NavBarProps) => {
-  const { searchCriteria, updateSearchCriteria } = useGlobalSearchProvider();
-  const searchContainerRef = useRef<HTMLDivElement>(null);
+  // const { searchCriteria, updateSearchCriteria } = useGlobalSearchProvider();
+  // const searchContainerRef = useRef<HTMLDivElement>(null);
   const Logo = useMemo(() => brandImageClassBase.getMonogram().src, []);
 
   const history = useHistory();
-  const { domainOptions, activeDomain, updateActiveDomain } =
-    useDomainProvider();
+  // const { domainOptions, activeDomain, updateActiveDomain } =
+  //   useDomainProvider();
   const { t } = useTranslation();
-  const { Option } = Select;
+  // const { Option } = Select;
   const searchRef = useRef<InputRef>(null);
-  const [searchIcon, setSearchIcon] = useState<string>('icon-searchv1');
-  const [cancelIcon, setCancelIcon] = useState<string>(
-    Icons.CLOSE_CIRCLE_OUTLINED
-  );
-  const [suggestionSearch, setSuggestionSearch] = useState<string>('');
+  // const [searchIcon, setSearchIcon] = useState<string>('icon-searchv1');
+  // const [cancelIcon, setCancelIcon] = useState<string>(
+  //   Icons.CLOSE_CIRCLE_OUTLINED
+  // );
+  // const [suggestionSearch, setSuggestionSearch] = useState<string>('');
   const [hasTaskNotification, setHasTaskNotification] =
     useState<boolean>(false);
   const [hasMentionNotification, setHasMentionNotification] =
@@ -129,28 +132,28 @@ const NavBar = ({
     });
   }, []);
 
-  const entitiesSelect = useMemo(
-    () => (
-      <Select
-        defaultActiveFirstOption
-        className="global-search-select"
-        data-testid="global-search-selector"
-        listHeight={300}
-        popupClassName="global-search-select-menu"
-        value={searchCriteria}
-        onChange={updateSearchCriteria}>
-        {globalSearchOptions.map(({ value, label }) => (
-          <Option
-            data-testid={`global-search-select-option-${label}`}
-            key={value}
-            value={value}>
-            {label}
-          </Option>
-        ))}
-      </Select>
-    ),
-    [searchCriteria, globalSearchOptions]
-  );
+  // const entitiesSelect = useMemo(
+  //   () => (
+  //     <Select
+  //       defaultActiveFirstOption
+  //       className="global-search-select"
+  //       data-testid="global-search-selector"
+  //       listHeight={300}
+  //       popupClassName="global-search-select-menu"
+  //       value={searchCriteria}
+  //       onChange={updateSearchCriteria}>
+  //       {globalSearchOptions.map(({ value, label }) => (
+  //         <Option
+  //           data-testid={`global-search-select-option-${label}`}
+  //           key={value}
+  //           value={value}>
+  //           {label}
+  //         </Option>
+  //       ))}
+  //     </Select>
+  //   ),
+  //   [searchCriteria, globalSearchOptions]
+  // );
 
   const language = useMemo(
     () =>
@@ -161,16 +164,16 @@ const NavBar = ({
 
   const { socket } = useWebSocketConnector();
 
-  const debouncedOnChange = useCallback(
-    (text: string): void => {
-      setSuggestionSearch(text);
-    },
-    [setSuggestionSearch]
-  );
+  // const debouncedOnChange = useCallback(
+  //   (text: string): void => {
+  //     setSuggestionSearch(text);
+  //   },
+  //   [setSuggestionSearch]
+  // );
 
-  const debounceOnSearch = useCallback(debounce(debouncedOnChange, 400), [
-    debouncedOnChange,
-  ]);
+  // const debounceOnSearch = useCallback(debounce(debouncedOnChange, 400), [
+  //   debouncedOnChange,
+  // ]);
 
   const handleTaskNotificationRead = () => {
     setHasTaskNotification(false);
@@ -310,10 +313,10 @@ const NavBar = ({
     return () => targetNode.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress]);
 
-  const handleDomainChange = useCallback(({ key }) => {
-    updateActiveDomain(key);
-    refreshPage();
-  }, []);
+  // const handleDomainChange = useCallback(({ key }) => {
+  //   updateActiveDomain(key);
+  //   refreshPage();
+  // }, []);
 
   const handleLanguageChange = useCallback(({ key }) => {
     i18next.changeLanguage(key);
@@ -322,12 +325,12 @@ const NavBar = ({
 
   const handleModalCancel = useCallback(() => handleFeatureModal(false), []);
 
-  const handleSelectOption = useCallback(
-    (text) => {
-      AppState.inPageSearchText = text;
-    },
-    [AppState]
-  );
+  // const handleSelectOption = useCallback(
+  //   (text) => {
+  //     AppState.inPageSearchText = text;
+  //   },
+  //   [AppState]
+  // );
 
   return (
     <>
@@ -342,7 +345,8 @@ const NavBar = ({
             width={30}
           />
         </Link>
-        <div
+        <div className="m-auto relative" />
+        {/* <div
           className="m-auto relative"
           data-testid="navbar-search-container"
           ref={searchContainerRef}>
@@ -432,10 +436,10 @@ const NavBar = ({
               onKeyDown={handleKeyDown}
             />
           </Popover>
-        </div>
+        </div> */}
 
         <Space align="center" size={24}>
-          <Dropdown
+          {/* <Dropdown
             className="cursor-pointer"
             menu={{
               items: domainOptions,
@@ -457,7 +461,7 @@ const NavBar = ({
                 <DropDownIcon height={14} width={14} />
               </Col>
             </Row>
-          </Dropdown>
+          </Dropdown> */}
 
           <Dropdown
             className="cursor-pointer"
@@ -508,7 +512,7 @@ const NavBar = ({
             </Badge>
           </Dropdown>
 
-          <Dropdown
+          {/* <Dropdown
             menu={{ items: supportDropdown }}
             overlayStyle={{ width: 175 }}
             placement="bottomRight"
@@ -518,7 +522,7 @@ const NavBar = ({
               component={Help}
               style={{ fontSize: '20px' }}
             />
-          </Dropdown>
+          </Dropdown> */}
 
           <UserProfileIcon />
         </Space>

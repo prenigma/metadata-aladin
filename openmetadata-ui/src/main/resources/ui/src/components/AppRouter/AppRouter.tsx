@@ -131,7 +131,7 @@ const AppRouter = () => {
               <Redirect to={ROUTES.SIGNIN} />
             </>
           ) : (
-            <Redirect to={ROUTES.MY_DATA} />
+            <Redirect to={ROUTES.SETTINGS} />
           )}
         </Route>
 

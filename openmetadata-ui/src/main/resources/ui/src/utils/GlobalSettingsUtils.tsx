@@ -396,7 +396,7 @@ export const getGlobalSettingMenuItem = (args: {
     label: isBeta ? (
       <Badge
         className={classNames({ 'text-xs text-grey-muted': !isChildren })}
-        color="#0968da"
+        color="#4e32bc"
         count="beta"
         offset={[30, 8]}
         size="small">
