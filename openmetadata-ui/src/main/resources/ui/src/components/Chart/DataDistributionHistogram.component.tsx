@@ -116,7 +116,7 @@ const DataDistributionHistogram = ({
                         tooltipFormatter(value)
                       }
                     />
-                    <Bar dataKey="frequency" fill="#1890FF" />
+                    <Bar dataKey="frequency" fill="#4e32bc" />
                   </BarChart>
                 </ResponsiveContainer>
               </Col>

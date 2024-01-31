@@ -203,7 +203,7 @@ const getPipelineExtraInfo = (pipelineType?: PipelineType) => {
                 <a
                   href={DATA_INSIGHTS_PIPELINE_DOCS}
                   rel="noreferrer"
-                  style={{ color: '#1890ff' }}
+                  style={{ color: '#4e32bc' }}
                   target="_blank"
                 />
               }
@@ -224,7 +224,7 @@ const getPipelineExtraInfo = (pipelineType?: PipelineType) => {
                 <a
                   href={ELASTIC_SEARCH_RE_INDEX_PIPELINE_DOCS}
                   rel="noreferrer"
-                  style={{ color: '#1890ff' }}
+                  style={{ color: '#4e32bc' }}
                   target="_blank"
                 />
               }
@@ -244,7 +244,7 @@ const getPipelineExtraInfo = (pipelineType?: PipelineType) => {
               <a
                 href={WORKFLOWS_METADATA_DOCS}
                 rel="noreferrer"
-                style={{ color: '#1890ff' }}
+                style={{ color: '#4e32bc' }}
                 target="_blank"
               />
             }

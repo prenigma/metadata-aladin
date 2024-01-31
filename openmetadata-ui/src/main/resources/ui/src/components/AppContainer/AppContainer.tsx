@@ -12,14 +12,14 @@
  */
 import { Layout } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
-import Sider from 'antd/lib/layout/Sider';
+// import Sider from 'antd/lib/layout/Sider';
 import { isEmpty } from 'lodash';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import AppState from '../../AppState';
 import Appbar from '../../components/AppBar/Appbar';
 import AuthenticatedAppRouter from '../../components/AppRouter/AuthenticatedAppRouter';
-import LeftSidebar from '../../components/MyData/LeftSidebar/LeftSidebar.component';
+// import LeftSidebar from '../../components/MyData/LeftSidebar/LeftSidebar.component';
 import { ROUTES } from '../../constants/constants';
 import SignUpPage from '../../pages/SignUp/SignUpPage';
 import './app-container.less';
@@ -35,14 +35,14 @@ const AppContainer = () => {
         <Header className="p-x-0">
           <Appbar />
         </Header>
-        <Layout hasSider>
+        {/* <Layout hasSider>
           <Sider className="left-sidebar-col" width={0}>
             <LeftSidebar />
-          </Sider>
+          </Sider> */}
           <Content className="main-content">
             <AuthenticatedAppRouter />
           </Content>
-        </Layout>
+        {/* </Layout> */}
       </Layout>
     </Switch>
   );

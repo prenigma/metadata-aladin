@@ -166,7 +166,7 @@ export const CustomizablePage = () => {
                 i18nKey="message.no-persona-message"
                 renderElement={
                   <Link
-                    style={{ color: '#1890ff' }}
+                    style={{ color: '#4e32bc' }}
                     to={getSettingPath(
                       GlobalSettingsMenuCategory.MEMBERS,
                       GlobalSettingOptions.PERSONA

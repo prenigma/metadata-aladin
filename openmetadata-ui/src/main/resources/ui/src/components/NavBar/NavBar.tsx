@@ -18,6 +18,8 @@ import {
   Dropdown,
   // Input,
   InputRef,
+  Menu,
+  MenuProps,
   // Popover,
   Row,
   // Select,
@@ -37,7 +39,7 @@ import React, {
   useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 // import AppState from '../../AppState';
 import { ReactComponent as DropDownIcon } from '../../assets/svg/DropDown.svg';
 import { ReactComponent as IconBell } from '../../assets/svg/ic-alert-bell.svg';
@@ -84,6 +86,14 @@ import { useWebSocketConnector } from '../WebSocketProvider/WebSocketProvider';
 import './nav-bar.less';
 import { NavBarProps } from './NavBar.interface';
 import popupAlertsCardsClassBase from './PopupAlertClassBase';
+import { getGlobalSettingMenuItem, getGlobalSettingsMenuWithPermission, MenuList } from '../../utils/GlobalSettingsUtils';
+import { useAuth } from '../../hooks/authHooks';
+import { usePermissionProvider } from '../PermissionProvider/PermissionProvider';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
+import { GlobalSettingOptions, GlobalSettingsMenuCategory } from '../../constants/GlobalSettings.constants';
+import { getSettingPath, getSettingsPathWithFqn, getTeamsWithFqnPath } from '../../utils/RouterUtils';
+import { TeamType } from '../../generated/entity/teams/team';
+import { ELASTIC_SEARCH_RE_INDEX_PAGE_TABS } from '../../enums/ElasticSearch.enum';
 
 const cookieStorage = new CookieStorage();
 
@@ -131,6 +141,63 @@ const NavBar = ({
       return <Component key={key} />;
     });
   }, []);
+
+  const { tab, settingCategory } = useParams<{ tab: string; settingCategory: string }>();
+  const { permissions } = usePermissionProvider();
+  const { isAdminUser } = useAuth();
+
+  const menuItems: ItemType[] = useMemo(
+    () =>
+      getGlobalSettingsMenuWithPermission(permissions, isAdminUser).reduce(
+        (acc: ItemType[], curr: MenuList) => {
+          const menuItem = getGlobalSettingMenuItem({
+            label: curr.category,
+            key: curr.key,
+            category: curr.category,
+            children: curr.items,
+            // type: 'group',
+            isBeta: curr.isBeta,
+          });
+          if (menuItem.children?.length) {
+            return [...acc, menuItem];
+          } else {
+            return acc;
+          }
+        },
+        [] as ItemType[]
+      ),
+    [permissions]
+  );
+
+  const onClick: MenuProps['onClick'] = (e) => {
+    // As we are setting key as "category.option" and extracting here category and option
+    const [category, option] = e.key.split('.');
+
+    switch (option) {
+      case GlobalSettingOptions.TEAMS:
+        history.push(getTeamsWithFqnPath(TeamType.Organization));
+
+        break;
+      case GlobalSettingOptions.SEARCH:
+        if (category === GlobalSettingsMenuCategory.OPEN_METADATA) {
+          history.push(
+            getSettingsPathWithFqn(
+              category,
+              option,
+              ELASTIC_SEARCH_RE_INDEX_PAGE_TABS.ON_DEMAND
+            )
+          );
+        } else {
+          history.push(getSettingPath(category, option));
+        }
+
+        break;
+      default:
+        history.push(getSettingPath(category, option));
+
+        break;
+    }
+  };
 
   // const entitiesSelect = useMemo(
   //   () => (
@@ -345,7 +412,18 @@ const NavBar = ({
             width={30}
           />
         </Link>
-        <div className="m-auto relative" />
+        <div className="m-auto relative">
+          <Menu
+            onClick={onClick}
+            selectedKeys={[`${settingCategory}.${tab}`]}
+            mode="horizontal"
+            items={menuItems}
+            style={{
+              lineHeight: '37px',
+              borderBottom: 'none',
+            }}
+          />
+        </div>
         {/* <div
           className="m-auto relative"
           data-testid="navbar-search-container"

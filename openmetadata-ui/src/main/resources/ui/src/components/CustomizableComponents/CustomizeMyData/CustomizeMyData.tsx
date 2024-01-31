@@ -297,7 +297,7 @@ function CustomizeMyData({
                   i18nKey="message.customize-landing-page-header"
                   renderElement={
                     <Link
-                      style={{ color: '#1890ff', fontSize: '16px' }}
+                      style={{ color: '#4e32bc', fontSize: '16px' }}
                       to={getPersonaDetailsPath(decodedPersonaFQN)}
                     />
                   }

@@ -67,7 +67,7 @@ const SampleDataWithMessages: FC<{
                 <a
                   href={WORKFLOWS_METADATA_DOCS}
                   rel="noreferrer"
-                  style={{ color: '#1890ff' }}
+                  style={{ color: '#4e32bc' }}
                   target="_blank"
                 />
               }

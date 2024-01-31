@@ -84,7 +84,10 @@ const renderLimitedListMenuItem = ({
 };
 
 export const UserProfileIcon = () => {
-  const { currentUser, onLogoutHandler } = useAuthContext();
+  const {
+    currentUser,
+    // onLogoutHandler
+  } = useAuthContext();
   const { selectedPersona, updateSelectedPersona } =
     useApplicationConfigContext();
   const [isImgUrlValid, setIsImgUrlValid] = useState<boolean>(true);
@@ -271,21 +274,21 @@ export const UserProfileIcon = () => {
         ),
         type: 'group',
       },
-      {
-        type: 'divider',
-      },
-      {
-        key: 'logout',
-        icon: '',
-        label: (
-          <Typography.Paragraph
-            className="font-medium cursor-pointer text-link-color m-b-0"
-            onClick={onLogoutHandler}>
-            {i18n.t('label.logout')}
-          </Typography.Paragraph>
-        ),
-        type: 'group',
-      },
+      // {
+      //   type: 'divider',
+      // },
+      // {
+      //   key: 'logout',
+      //   icon: '',
+      //   label: (
+      //     <Typography.Paragraph
+      //       className="font-medium cursor-pointer text-link-color m-b-0"
+      //       onClick={onLogoutHandler}>
+      //       {i18n.t('label.logout')}
+      //     </Typography.Paragraph>
+      //   ),
+      //   type: 'group',
+      // },
     ],
     [
       currentUser,

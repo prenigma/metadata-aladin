@@ -116,7 +116,7 @@ const ErrorPlaceHolderES = ({ type, errorMessage, query }: Props) => {
                   <a
                     href={CONNECTORS_DOCS}
                     rel="noreferrer"
-                    style={{ color: '#1890ff' }}
+                    style={{ color: '#4e32bc' }}
                     target="_blank"
                   />
                 }
