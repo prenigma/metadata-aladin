@@ -11,7 +11,13 @@
  *  limitations under the License.
  */
 
-import { Badge, Button, Col, Row, Select } from 'antd';
+import {
+  Badge,
+  Button,
+  Col,
+  Row,
+  // Select
+} from 'antd';
 import classNames from 'classnames';
 import { startCase } from 'lodash';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -94,7 +100,7 @@ const SelectServiceType = ({
 
   return (
     <Row>
-      <Col span={24}>
+      {/* <Col span={24}>
         <Select
           className="w-full"
           data-testid="service-category"
@@ -106,8 +112,8 @@ const SelectServiceType = ({
             serviceCategoryHandler(value as ServiceCategory);
           }}
         />
-      </Col>
-      <Col className="m-t-lg" span={24}>
+      </Col> */}
+      {/* <Col className="m-t-lg" span={24}>
         <Searchbar
           removeMargin
           placeholder={t('label.search-for-type', {
@@ -161,6 +167,86 @@ const SelectServiceType = ({
               fieldText: t('label.service'),
             })
           )}
+      </Col> */}
+
+      <Col className="m-t-lg d-flex" span={24} style={{ gap: 16 }}>
+        <Row className="d-flex flex-column" style={{ flex: '0 0 116px', gap: 8 }}>
+          {/* list service categories in column */}
+          {SERVICE_CATEGORY_OPTIONS.map((serviceCategory) => (
+            <Button
+              className={classNames('w-full', {
+                'border-primary': serviceCategory.value === category,
+              })}
+              data-testid={category}
+              key={serviceCategory.value}
+              onClick={() => {
+                setConnectorSearchTerm('');
+                serviceCategoryHandler(serviceCategory.value as ServiceCategory);
+              }}
+            >
+              {serviceCategory.label.split(" ")[0]}
+            </Button>
+          ))}
+        </Row>
+        <Row className='flex-1'>
+          {/* List filtered connectors in list format */}
+          <Col span={24}>
+            <Searchbar
+              removeMargin
+              placeholder={t('label.search-for-type', {
+                type: t('label.connector'),
+              })}
+              searchValue={connectorSearchTerm}
+              typingInterval={500}
+              onSearch={handleConnectorSearchTerm}
+            />
+
+            <Row className="service-list-container" data-testid="select-service">
+              {filteredConnectors.map((type) => (
+                <Button
+                  className={classNames('service-box p-xs border w-full d-flex items-center', {
+                    'border-primary': type === selectServiceType,
+                  })}
+                  style={{ gap: 12 }}
+                  data-testid={type}
+                  key={type}
+                  onClick={() => handleServiceTypeClick(type)}>
+                  <div data-testid="service-icon">
+                    {getServiceLogo(type || '', 'h-5')}
+                  </div>
+                  <div className="absolute" style={{ right: '4px', top: '0px' }}>
+                    {type === selectServiceType && (
+                      <SVGIcons
+                        alt="checkbox"
+                        height="14px"
+                        icon={Icons.CHECKBOX_PRIMARY}
+                      />
+                    )}
+                  </div>
+                  <p className="text-center">
+                    {getServiceName(type)}
+                    {BETA_SERVICES.includes(
+                      type as DatabaseServiceType | PipelineServiceType
+                    ) ? (
+                      <Badge
+                        className="service-beta-tag"
+                        color={PRIMERY_COLOR}
+                        count={t('label.beta')}
+                      />
+                    ) : null}
+                  </p>
+                </Button>
+              ))}
+            </Row>
+
+            {showError &&
+              errorMsg(
+                t('message.field-text-is-required', {
+                  fieldText: t('label.service'),
+                })
+              )}
+          </Col>
+        </Row>
       </Col>
 
       <Col className="d-flex justify-end mt-12" span={24}>

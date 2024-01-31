@@ -409,7 +409,7 @@ const NavBar = ({
             className="vertical-middle"
             dataTestId="image"
             height={30}
-            width={30}
+            width={80}
           />
         </Link>
         <div className="m-auto relative">

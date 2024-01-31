@@ -13,6 +13,7 @@
 import React, { FC, useMemo } from 'react';
 import { useApplicationConfigContext } from '../../../components/ApplicationConfigProvider/ApplicationConfigProvider';
 import brandImageClassBase from '../../../utils/BrandImage/BrandImageClassBase';
+import logo from './aladin-logo.png';
 
 interface BrandImageProps {
   dataTestId?: string;
@@ -48,12 +49,12 @@ const BrandImage: FC<BrandImageProps> = ({
 
   return (
     <img
-      alt={alt ?? 'OpenMetadata Logo'}
+      alt={alt ?? 'Aladin Logo'}
       className={className}
       data-testid={dataTestId ?? 'brand-logo-image'}
       height={height}
       id="brand-image"
-      src={logoSource}
+      src={logo || logoSource}
       width={width}
     />
   );

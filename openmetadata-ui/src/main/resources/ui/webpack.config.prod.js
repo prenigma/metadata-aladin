@@ -179,7 +179,7 @@ module.exports = {
     }),
     // Generate index.html from template
     new HtmlWebpackPlugin({
-      favicon: path.join(__dirname, 'public/favicon.png'),
+      favicon: path.join(__dirname, 'public/favicon.ico'),
       hash: true,
       cache: false,
       template: path.join(__dirname, 'public/index.html'),
@@ -189,7 +189,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.join(__dirname, 'public/favicon.png'),
+          from: path.join(__dirname, 'public/favicon.ico'),
           to: outputPath,
         },
         {
