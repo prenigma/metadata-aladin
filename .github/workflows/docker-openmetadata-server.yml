@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: openmetadata-binary
-          path: /home/runner/work/OpenMetadata/OpenMetadata/openmetadata-dist/target/*.tar.gz
+          path: /home/runner/work/metadata-aladin/OpenMetadata/openmetadata-dist/target/*.tar.gz
  
   release-project-event-release:
     if: github.event_name == 'release'
