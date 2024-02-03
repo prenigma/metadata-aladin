@@ -20,7 +20,11 @@ on:
         description: "Do you want to update docker image latest tag as well ?"
         type: boolean
   release:
-    types: [published]
+    types: [published, created]
+  push:
+    tags:
+      - '*'
+    
 jobs:
   maven-build:
     runs-on: ubuntu-latest
