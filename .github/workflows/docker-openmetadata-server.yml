@@ -87,8 +87,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.get_release.outputs.upload_url }}
-          asset_path: ./openmetadata-${{ steps.check_trigger.outputs.DOCKER_RELEASE_TAG }}.tar.gz
-          asset_name: openmetadata-${{ steps.check_trigger.outputs.DOCKER_RELEASE_TAG }}.tar.gz
+          asset_path: ./metadata-aladin-${{ steps.check_trigger.outputs.DOCKER_RELEASE_TAG }}.tar.gz
+          asset_name: metadata-aladin-${{ steps.check_trigger.outputs.DOCKER_RELEASE_TAG }}.tar.gz
           asset_content_type: application/tar.gz
           
   release-project-event-workflow_dispatch:
