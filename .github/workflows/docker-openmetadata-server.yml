@@ -20,7 +20,7 @@ on:
         description: "Do you want to update docker image latest tag as well ?"
         type: boolean
   release:
-    types: [published, created]
+    types: [created, published]
   push:
     tags:
       - '*'
